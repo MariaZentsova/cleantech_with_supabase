@@ -1,11 +1,11 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import Header from "@/components/Header"
+import AppShell from "@/components/AppShell"
+import Dashboard from "@/components/Dashboard"
 
 export default function Home() {
   return (
-    <div className={styles.container}>
-Main Page goes here
-    </div>
+   <AppShell width="full" maxWidth="1280px" mx="auto" px={6} py={6}>
+     <Dashboard />
+   </AppShell>
   )
 }
