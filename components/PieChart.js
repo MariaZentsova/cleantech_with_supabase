@@ -12,20 +12,31 @@ const clean_investments = [
 ]
 
 const PieChart = ({ width, height }) => {
-    const half = (height) / 2
+     // define margins from where to start drawing the chart
+   const margin = { top: 10, right: 40, bottom: 70, left: 40 };
+   
+    const half = (width) / 2
+
+    const innerWidth = width - margin.left - margin.right;
+    const innerHeight = height - margin.top - margin.bottom;
+    const radius = Math.min(innerWidth, innerHeight) / 2;
+    const centerY = innerHeight / 2;
+    const centerX = innerWidth / 2;
+    const donutThickness = 50;
+  
 
     const [active, setActive] = useState(null)
     return (
         <svg width={width } height={height}>
-            <Group top={half} left={half} >
+            <Group top={centerY + margin.top} left={centerX + margin.left} >
                 <Pie
                  
                     data={clean_investments}
                     pieValue={data => data.amount}
-                    outerRadius={half}
+                    outerRadius={radius}
                     innerRadius={({ data }) => {
                         const size = active && active.type == data.type ? 16 : 12;
-                        return half - size
+                        return radius - size
                     }}
                     padAngle={0.01}
                 >
@@ -60,7 +71,7 @@ const PieChart = ({ width, height }) => {
 
                     </Text>
                     <Text textAnchor='middle' fontSize={15} dy={20} color='#aaa'>
-                        total investments
+                        Total
                     </Text>
                 </>}
 
