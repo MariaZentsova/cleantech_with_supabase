@@ -76,7 +76,7 @@ import {
           const radio = getCheckboxProps({ value });
           return (
             // <Tag size='lg' _hover={{ background: "blue.500", color: "white" }} mr={2} mt={2}>{value}</Tag>
-            <RadioCard key={value.tag} {...radio.tag} color={value.color}>
+            <RadioCard key={value.type} {...radio.tag} color={value.color}>
                 
               #{value.type}
              

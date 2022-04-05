@@ -11,10 +11,12 @@ import {
     BreadcrumbSeparator
 } from '@chakra-ui/react'
 import AppShell from "@/components/AppShell"
-import NewsCard from "@/components/NewsCard"
-import TagsCloud from '@/components/TagsCloud'
 
-export default function Home() {
+import { supabase } from '@/utils/supabaseClient'
+import Newsfeed from '@/components/Newsfeed'
+
+export default function CleantechNews({newsfeed}) {
+    console.log(newsfeed)
     return (
         <AppShell width="full" maxWidth="1280px" mx="auto" px={6} py={6}>
             <Breadcrumb fontWeight={'bold'} mb={3}>
@@ -26,15 +28,23 @@ export default function Home() {
                     <BreadcrumbLink href='#'>Clean Tech News</BreadcrumbLink>
                 </BreadcrumbItem>
             </Breadcrumb>
-            <TagsCloud />
-            <Stack pt={2} spacing="2">
-                <NewsCard />
-                <NewsCard />
-                <NewsCard />
-                <NewsCard />
-                <NewsCard />
-                <NewsCard />
-            </Stack>
+           <Newsfeed news={newsfeed} />
         </AppShell>
     )
+
+    
 }
+
+
+export async function getServerSideProps() {
+    // Fetch data from external API
+    let { data: newsfeed, count, error } = await
+              supabase.from('newsfeed')
+                  .select('*', { count: "exact" })
+                
+                  .order("created_at", { ascending: false })
+                  .range(0, 5)
+  
+    // Pass data to the page via props
+    return { props: { newsfeed } }
+  }

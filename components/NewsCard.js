@@ -10,80 +10,78 @@ function url_domain(url) {
 }
 
 
-const NewsCard = () => {
+const NewsCard = ({ post, index }) => {
     return (
         <Box
-        bg="#fff"
-        p="2"
-        boxShadow={'sm'}
-        position="relative"
-        borderRadius="lg"
-        maxW={'1000px'}
+            bg="#fff"
+            p="2"
+            boxShadow={'sm'}
+            position="relative"
+            borderRadius="lg"
+            maxW={'1000px'}
+            key={index}
         // ref={ref}
 
-    >
-        <Flex>
+        >
+            <Flex>
 
-            <Stack ml={3} mt={2} mb={2} w="100%" pr={4}>
-                <Flex align="center" justify="space-between">
-                    
-                    <Link
-                    // href={post.url} 
-                    href = '#'
-                     isExternal _hover={{
+                <Stack ml={3} mt={2} mb={2} w="100%" pr={4}>
+                    <Flex align="center" justify="space-between">
+                        <Link
+                            href={post.url}
+                            isExternal _hover={{
+                                textDecoration: 'underline',
+                                textDecorationColor: "rgb(28, 255, 155)",
+                                textDecorationThickness: "4px"
 
-                        textDecoration: 'underline',
-                        textDecorationColor: "rgb(28, 255, 155)",
-                        textDecorationThickness: "4px"
+                            }}>
+                            <Heading fontSize="xl" fontWeight="semibold" lineHeight="short">
+                                {post.title}
 
-                    }}>
-                        <Heading fontSize="xl" fontWeight="semibold" lineHeight="short">
-                            Mexico will be building it's own wind turbines
-
-                        </Heading> 
-                    </Link>
-                    {/* <Badge
+                            </Heading>
+                        </Link>
+                        {/* <Badge
                     // colorScheme={badgeColors[post.type.cleanup()]}
                     >
                         Agriculture
                         {post.type}
                     </Badge> */}
-                    <Badge colorScheme='green' size="sm">
-                        Clean Energy
-                    </Badge>
+                        <Badge colorScheme='green' size="sm">
+                            Clean Energy
+                        </Badge>
 
-                </Flex>
-                <Flex align="center" justify="space-between">
-                    <Box>
-                        <Text fontSize={'sm'}>
-                            These wind turbines will be very big indeed
-                        </Text>
-                    </Box>
-                    {/* <Badge variantColor="grey">30th October 2021</Badge> */}
-                </Flex>
-                <Flex align="center" justify="space-between">
+                    </Flex>
+                    <Flex align="center" justify="space-between">
+                        <Box>
+                            <Text fontSize={'sm'}>
+                                {post.body}
+                            </Text>
+                        </Box>
+                        {/* <Badge variantColor="grey">30th October 2021</Badge> */}
+                    </Flex>
+                    <Flex align="center" justify="space-between">
 
 
-                    {/* <HStack>
+                        {/* <HStack>
                         {post.tags.map(tag => (
                             <Tag key={tag} colorScheme='gray'>
                                 {tag}
                             </Tag>
                         ))}
                     </HStack> */}
-                    <Text as="em" color="gray.400" fontSize={"sm"}>
+                        <Text as="em" color="gray.400" fontSize={"sm"}>
 
-                        {/* {format(parseISO(post.created_at), 'MMMM do, yyyy')} */}
-                        3 March 2022
-                    </Text>
-                    <Text as="em" color="gray.400" fontSize={"sm"}>
-                        {/* {url_domain(post.url)} */}
-                      www.example.com
-                    </Text>
-                </Flex>
-            </Stack>
-        </Flex>
-    </Box>
+                            {format(parseISO(post.created_at), 'MMMM do, yyyy')}
+
+                        </Text>
+                        <Text as="em" color="gray.400" fontSize={"sm"}>
+                            {url_domain(post.url)}
+
+                        </Text>
+                    </Flex>
+                </Stack>
+            </Flex>
+        </Box>
     )
 }
 
