@@ -25,7 +25,7 @@ const Dashboard = () => {
                 </BreadcrumbItem>
 
                 <BreadcrumbItem>
-                    <BreadcrumbLink href='#'>CleanTech Start Ups Funding</BreadcrumbLink>
+                    <BreadcrumbLink href='#'>Clean Tech Start Ups Funding</BreadcrumbLink>
                 </BreadcrumbItem>
             </Breadcrumb>
             <Grid

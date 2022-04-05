@@ -34,7 +34,7 @@ const NewsCard = () => {
 
                         textDecoration: 'underline',
                         textDecorationColor: "rgb(28, 255, 155)",
-                        textDecorationWidth: "8px"
+                        textDecorationThickness: "4px"
 
                     }}>
                         <Heading fontSize="xl" fontWeight="semibold" lineHeight="short">
@@ -48,7 +48,7 @@ const NewsCard = () => {
                         Agriculture
                         {post.type}
                     </Badge> */}
-                    <Badge colorScheme='purple' size="sm">
+                    <Badge colorScheme='green' size="sm">
                         Clean Energy
                     </Badge>
 

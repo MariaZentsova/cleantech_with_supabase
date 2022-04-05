@@ -55,7 +55,7 @@ const PieChart = ({ width, height }) => {
                     }}
                 </Pie>
 
-                {active ? <>  <Text textAnchor='middle' fontSize={30} dy={-20}>
+                {active ? <>  <Text textAnchor='middle' fontSize={30} dy={-10}>
 
                     {` US$ ${Math.floor(active.amount)} mln`}
 
@@ -63,7 +63,7 @@ const PieChart = ({ width, height }) => {
                     <Text textAnchor='middle' fontSize={15} dy={20} color='#aaa'>
                         {active.type} 
                     </Text></> : <>
-                    <Text textAnchor='middle' fontSize={30} dy={-20}>
+                    <Text textAnchor='middle' fontSize={30} dy={-10}>
 
                         {` US$ ${Math.floor(
                             clean_investments.reduce((acc, type) => acc + type.amount, 0)

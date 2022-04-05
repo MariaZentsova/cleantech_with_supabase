@@ -7,7 +7,7 @@ const AppShell = ({children, ...rest}) => {
         <Header  />
         <Box>
            
-            <Box pl={[0, null, null]} mt="4rem">
+            <Box pl={[0, null, null]} >
                 <Box
                     as="section"
                     backgroundColor={ 'gray.100' }

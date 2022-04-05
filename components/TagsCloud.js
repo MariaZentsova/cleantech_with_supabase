@@ -21,10 +21,10 @@ import {
       <Box as="label" >
         <input {...input} />
         <Tag 
-        bg="#aaa"
+       // bg="#aaa"
         opacity = {0.7}
         color = '#000'
-        //colorScheme={'purple'}
+        colorScheme={'black'}
         _hover={{ background: "blue.500", color: "white" }}
           {...checkbox}
           cursor="pointer"
