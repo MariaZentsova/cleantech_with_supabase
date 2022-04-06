@@ -38,7 +38,7 @@ export async function getServerSideProps() {
   let { data: funding, count, error } = await
     supabase.from('funding')
       .select(sql, { count: "exact" })
-      .order("created_at", { ascending: false })
+      .order("date", { ascending: false })
       .range(0, 5)
 
   // Pass data to the page via props

@@ -42,7 +42,7 @@ const Header = () => {
                         </HStack>
                     </Box>
 
-                    <HStack fontWeight={'extrabold'} spacing="10">
+                    <HStack fontWeight={'extrabold'} spacing={20}>
                         <NextLink href='/cleantech-news' passHref>
                             <Link _hover={{
                                 textDecoration: 'underline',
@@ -60,6 +60,19 @@ const Header = () => {
                             <NavLink>
                                 Funding
                                 </NavLink>
+                        </NextLink>
+                        <NextLink href='https://app.loopedin.io/sustinero#/ideas' passHref>
+                        <Link isExternal _hover={{
+                                textDecoration: 'underline',
+                                textDecorationColor: "rgb(28, 255, 155)",
+                                textDecorationThickness: "4px",
+                                textUnderlineOffset: 'var(--offset, 0.2em)',
+                                // transition: '--offset 400ms, text-decoration-color 400ms'
+
+                            }}
+                            >
+                                Submit a feedback
+                                </Link>
                         </NextLink>
                     </HStack>
                     <Flex align="center" >

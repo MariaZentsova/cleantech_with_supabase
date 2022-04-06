@@ -23,6 +23,12 @@ function url_domain(url) {
     return domain.hostname;
 }
 
+function return_mln (number) {
+   let output =  Math.floor(Math.abs(Number(number)) / 1.0e+4)/100 + " M"
+
+   return output
+}
+
 
 const RoundsTable = ({ funding }) => {
     return (
@@ -60,15 +66,15 @@ const RoundsTable = ({ funding }) => {
                             </Tag>
                             </Td>
                             <Td >{round.startups.industry.text}</Td>
-                            <Td isNumeric>{round.amount_usd}</Td>
+                            <Td isNumeric>{return_mln(round.amount_usd)}</Td>
                             <Td >{round.startups.countries.name}</Td>
                             <Td>    {format(parseISO(round.date), 'MMMM, yyyy')}</Td>
                             <Td> 
                                 <HStack>
                                 <Link href={round.source.url} isExternal>
-                                 {url_domain(round.source.url)}
+                                <HiOutlineExternalLink />
                                  </Link>
-                                 <HiOutlineExternalLink />
+                              
                                  </HStack>
                                  </Td>
                         </Tr>
