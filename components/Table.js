@@ -6,46 +6,77 @@ import {
     Tr,
     Th,
     Td,
-    TableCaption,
+    Tag,
     TableContainer,
+    HStack,
+    Link,
+    Box,
+    Text
 } from '@chakra-ui/react'
+import Image from 'next/image'
+import { format, parseISO } from "date-fns";
+import {HiOutlineExternalLink} from 'react-icons/hi'
 
-const RoundsTable = () => {
+function url_domain(url) {
+    let domain = (new URL(url));
+
+    return domain.hostname;
+}
+
+
+const RoundsTable = ({ funding }) => {
     return (
         <TableContainer bg="white">
             <Table variant='simple'>
-                <TableCaption>Imperial to metric conversion factors</TableCaption>
                 <Thead>
                     <Tr>
-                        <Th>To convert</Th>
-                        <Th>into</Th>
-                        <Th isNumeric>multiply by</Th>
+                        <Th>Startup</Th>
+                        <Th>Round</Th>
+                        <Th>Industry</Th>
+                        <Th isNumeric>Value</Th>
+                        <Th >location</Th>
+                        <Th >Date</Th>
+                        <Th>Source</Th>
                     </Tr>
                 </Thead>
                 <Tbody>
-                    <Tr>
-                        <Td>inches</Td>
-                        <Td>millimetres (mm)</Td>
-                        <Td isNumeric>25.4</Td>
-                    </Tr>
-                    <Tr>
-                        <Td>feet</Td>
-                        <Td>centimetres (cm)</Td>
-                        <Td isNumeric>30.48</Td>
-                    </Tr>
-                    <Tr>
-                        <Td>yards</Td>
-                        <Td>metres (m)</Td>
-                        <Td isNumeric>0.91444</Td>
-                    </Tr>
+                    {funding.map((round) => (
+                        <Tr>
+                            <Td>
+
+                                <HStack spacing={3}>
+                                    {/* <Avatar name={member.name} src={member.avatarUrl} boxSize="10" /> */}
+                                    <Image
+                                        src={round.startups.logo_url}
+                                        width={40}
+                                        height={40} />
+                                    <Box>
+                                        <Text>{round.startups.name}</Text>
+                                    </Box>
+                                </HStack>
+                            </Td>
+                            <Td>   <Tag colorScheme='green' size="sm">
+                                {round.stage}
+                            </Tag>
+                            </Td>
+                            <Td >{round.startups.industry.text}</Td>
+                            <Td isNumeric>{round.amount_usd}</Td>
+                            <Td >{round.startups.countries.name}</Td>
+                            <Td>    {format(parseISO(round.date), 'MMMM, yyyy')}</Td>
+                            <Td> 
+                                <HStack>
+                                <Link href={round.source.url} isExternal>
+                                 {url_domain(round.source.url)}
+                                 </Link>
+                                 <HiOutlineExternalLink />
+                                 </HStack>
+                                 </Td>
+                        </Tr>
+                    ))}
+
+
                 </Tbody>
-                <Tfoot>
-                    <Tr>
-                        <Th>To convert</Th>
-                        <Th>into</Th>
-                        <Th isNumeric>multiply by</Th>
-                    </Tr>
-                </Tfoot>
+
             </Table>
         </TableContainer>
     )

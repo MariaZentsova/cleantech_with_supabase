@@ -16,7 +16,8 @@ import ParentSize from '@visx/responsive/lib/components/ParentSize';
 import Card from "@/components/Card"
 import BarChart from './BarChart';
 
-const Dashboard = () => {
+const Dashboard = ({funding}) => {
+    console.log(funding)
     return (
         <>
             <Breadcrumb fontWeight={'bold'} mb={3}>
@@ -90,7 +91,7 @@ const Dashboard = () => {
                     </Card>
                 </GridItem>
                 <GridItem rowSpan={3} colSpan={5} bg='papayawhip'>
-                    <RoundsTable />
+                    <RoundsTable funding={funding} />
                 </GridItem>
             </Grid>
         </>
