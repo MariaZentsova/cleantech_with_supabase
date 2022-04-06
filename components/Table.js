@@ -8,6 +8,7 @@ import {
     Td,
     Tag,
     TableContainer,
+    TableCaption,
     HStack,
     Link,
     Box,
@@ -15,7 +16,9 @@ import {
 } from '@chakra-ui/react'
 import Image from 'next/image'
 import { format, parseISO } from "date-fns";
-import {HiOutlineExternalLink} from 'react-icons/hi'
+import { HiOutlineExternalLink } from 'react-icons/hi'
+import NextLink from 'next/link'
+import { MdArrowForward } from "react-icons/md"
 
 function url_domain(url) {
     let domain = (new URL(url));
@@ -23,10 +26,10 @@ function url_domain(url) {
     return domain.hostname;
 }
 
-function return_mln (number) {
-   let output =  Math.floor(Math.abs(Number(number)) / 1.0e+4)/100 + " M"
+function return_mln(number) {
+    let output = Math.floor(Math.abs(Number(number)) / 1.0e+4) / 100 + " M"
 
-   return output
+    return output
 }
 
 
@@ -34,6 +37,11 @@ const RoundsTable = ({ funding }) => {
     return (
         <TableContainer bg="white">
             <Table variant='simple'>
+                <TableCaption>
+                    <NextLink href='./cleantech-funding'>
+                        <Link>  View all</Link>
+                    </NextLink>
+                </TableCaption>
                 <Thead>
                     <Tr>
                         <Th>Startup</Th>
@@ -69,14 +77,14 @@ const RoundsTable = ({ funding }) => {
                             <Td isNumeric>{return_mln(round.amount_usd)}</Td>
                             <Td >{round.startups.countries.name}</Td>
                             <Td>    {format(parseISO(round.date), 'MMMM, yyyy')}</Td>
-                            <Td> 
+                            <Td>
                                 <HStack>
-                                <Link href={round.source.url} isExternal>
-                                <HiOutlineExternalLink />
-                                 </Link>
-                              
-                                 </HStack>
-                                 </Td>
+                                    <Link href={round.source.url} isExternal>
+                                        <HiOutlineExternalLink />
+                                    </Link>
+
+                                </HStack>
+                            </Td>
                         </Tr>
                     ))}
 
