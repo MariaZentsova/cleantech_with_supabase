@@ -27,7 +27,7 @@ function url_domain(url) {
 }
 
 function return_mln(number) {
-    let output = Math.floor(Math.abs(Number(number)) / 1.0e+4) / 100 + " M"
+    let output = Math.floor(Math.abs(Number(number)) / 1.0e+4) / 100 + " mln"
 
     return output
 }

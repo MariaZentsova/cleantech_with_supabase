@@ -16,22 +16,12 @@ const PieChart = ({ width, height, investment }) => {
     // define margins from where to start drawing the chart
     const margin = { top: 10, right: 40, bottom: 70, left: 40 };
 
-    //console.log(investment)
 
-
-    // let result = group().key(function (d) {
-    //     return d.countries.name;
-    // })
-    //     .rollup(function (leaves) {
-    //         return d3.sum(leaves, function (d) {
-    //             return d.total_usd;
-    //         });
-    //     }).entries(investment)
-    //     .map(function (d) {
-    //         return { Country: d.key, Value: d.values };
-    //     });
-
-   // let result = group(investment, d=> d.countries.name)
+    function return_mln(number) {
+        let output = Math.floor(Math.abs(Number(number)) / 1.0e+4) / 100 + " mln"
+    
+        return output
+    }
 
     let clean_investments = rollups(
         investment,
@@ -83,7 +73,7 @@ const PieChart = ({ width, height, investment }) => {
 
                 {active ? <>  <Text textAnchor='middle' fontSize={30} dy={-10}>
 
-                    {` US$ ${Math.floor(active.amount)} mln`}
+                    {` US$ ${return_mln(Math.floor(active.amount))}`}
 
                 </Text>
                     <Text textAnchor='middle' fontSize={15} dy={20} color='#aaa'>
@@ -91,9 +81,9 @@ const PieChart = ({ width, height, investment }) => {
                     </Text></> : <>
                     <Text textAnchor='middle' fontSize={30} dy={-10}>
 
-                        {` US$ ${Math.floor(
+                        {` US$ ${return_mln(Math.floor(
                             clean_investments.reduce((acc, type) => acc + type.amount, 0)
-                        )} mln`}
+                        ))}`}
 
                     </Text>
                     <Text textAnchor='middle' fontSize={15} dy={20} color='#aaa'>
