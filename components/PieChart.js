@@ -38,7 +38,6 @@ const PieChart = ({ width, height, investment }) => {
     const radius = Math.min(innerWidth, innerHeight) / 2;
     const centerY = innerHeight / 2;
     const centerX = innerWidth / 2;
-    const donutThickness = 50;
 
 
     const [active, setActive] = useState(null)

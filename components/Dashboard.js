@@ -45,7 +45,7 @@ const Dashboard = ({ funding, count, investment }) => {
 
             //to make the grid responsive
             >
-                <GridItem  rowSpan={{ sm: 3, md: 3 }} colSpan={{ sm: 5, md: 2, lg: 2, '2xl': 2 }}>
+                {/* <GridItem  rowSpan={{ sm: 3, md: 3 }} colSpan={{ sm: 5, md: 2, lg: 2, '2xl': 2 }}>
                     <Card height={'100%'}>
                         <Text p={2} > Clean Tech Investments, mln $</Text>
                         <ParentSize>
@@ -55,7 +55,7 @@ const Dashboard = ({ funding, count, investment }) => {
                             }
                         </ParentSize>
                     </Card>
-                </GridItem>
+                </GridItem> */}
                 <GridItem colSpan={{ sm: 5, md: 3, lg: 3, xl: 3, '2xl': 3 }} >
                     <HStack justify='space-between'>
                         <Card height={'100%'}>
