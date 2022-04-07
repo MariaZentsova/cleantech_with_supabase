@@ -9,7 +9,7 @@ import AppShell from "@/components/AppShell";
 import { basePath } from "@/utils/siteConfig";
 
 const CleanTechFunding = ({user}) => {
-    console.log(user)
+
     return (
         <AppShell width="full" maxWidth="1280px" mx="auto" px={6} py={6}l>
                 <Breadcrumb fontWeight={'bold'} mb={3}>

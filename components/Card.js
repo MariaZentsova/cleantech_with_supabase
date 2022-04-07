@@ -5,7 +5,7 @@ const Card = ({children, height}) => (
   <Box
     height={height}
 
-    bg="#fff"
+    bg="#ffffff"
     boxShadow={useColorModeValue('sm', 'sm-dark')}
     borderRadius="lg"
   

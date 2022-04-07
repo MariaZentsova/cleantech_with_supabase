@@ -3,10 +3,11 @@ import AppShell from "@/components/AppShell"
 import Dashboard from "@/components/Dashboard"
 import { supabase } from '@/utils/supabaseClient'
 
-function Home({ funding }) {
+function Home({ funding, count, investment_industry_country }) {
+ 
   return (
     <AppShell width="full" maxWidth="1280px" mx="auto" px={6} py={6}>
-      <Dashboard funding={funding} />
+      <Dashboard funding={funding} count={count} investment={investment_industry_country}/>
     </AppShell>
   )
 }
@@ -41,8 +42,14 @@ export async function getServerSideProps() {
       .order("date", { ascending: false })
       .range(0, 5)
 
+    
+  let { data: investment_industry_country} = await supabase
+      .from('investment_industry_country')
+      .select('countries(name), industry(text), total_usd')
+
+
   // Pass data to the page via props
-  return { props: { funding } }
+  return { props: {funding, count, investment_industry_country} }
 }
 
 export default Home

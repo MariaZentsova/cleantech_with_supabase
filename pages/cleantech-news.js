@@ -16,7 +16,7 @@ import { supabase } from '@/utils/supabaseClient'
 import Newsfeed from '@/components/Newsfeed'
 
 export default function CleantechNews({newsfeed}) {
-    console.log(newsfeed)
+
     return (
         <AppShell width="full" maxWidth="1280px" mx="auto" px={6} py={6}>
             <Breadcrumb fontWeight={'bold'} mb={3}>

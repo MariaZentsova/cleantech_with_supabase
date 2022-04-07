@@ -4,6 +4,7 @@ import { Group } from '@visx/group';
 import letterFrequency, { LetterFrequency } from '@visx/mock-data/lib/mocks/letterFrequency';
 import { scaleBand, scaleLinear } from '@visx/scale';
 import { AxisLeft, AxisBottom } from '@visx/axis';
+import { rollups, sum, scaleOrdinal,quantize, interpolateRainbow } from 'd3'
 
 const data = letterFrequency.slice(5);
 const verticalMargin = 120;
@@ -12,7 +13,23 @@ const verticalMargin = 120;
 const getLetter = (d) => d.letter;
 const getLetterFrequency = (d) => Number(d.frequency) * 100;
 
-const BarChart = ({ width, height }) => {
+const getCountry = (d) => d.Country
+const getCountryValue = (d) => d.Value
+
+
+const BarChart = ({ width, height, investment }) => {
+
+
+  //preprocess the data
+  let investment_by_country = rollups(
+    investment,
+  xs => sum(xs, x => x.total_usd),
+  d => d.countries.name
+)
+.map(([k, v]) => ({ Country: k, Value: v }))
+
+console.log(investment_by_country)
+
 
 
    // define margins from where to start drawing the chart
@@ -31,7 +48,7 @@ const BarChart = ({ width, height }) => {
       scaleBand({
         range: [0, innerWidth],
         round: true,
-        domain: data.map(getLetter),
+        domain: investment_by_country.map(getCountry),
         padding: 0.4,
       }),
     [innerWidth],
@@ -41,7 +58,7 @@ const BarChart = ({ width, height }) => {
       scaleLinear({
         range: [innerHeight, 0],
         round: true,
-        domain: [0, Math.max(...data.map(getLetterFrequency))],
+        domain: [0, Math.max(...investment_by_country.map(getCountryValue))],
       }),
     [innerHeight],
   );
@@ -73,15 +90,15 @@ const BarChart = ({ width, height }) => {
           textAnchor: 'end',
         })} />
      
-        {data.map((d) => {
-          const letter = getLetter(d);
+        {investment_by_country.map((d) => {
+          const country = getCountry(d);
           const barWidth = xScale.bandwidth();
-          const barHeight = innerHeight - (yScale(getLetterFrequency(d)) ?? 0);
-          const barX = xScale(letter);
+          const barHeight = innerHeight - (yScale(getCountryValue(d)) ?? 0);
+          const barX = xScale(country);
           const barY = innerHeight - barHeight;
           return (
             <Bar
-              key={`bar-${letter}`}
+              key={`bar-${country}`}
               x={barX}
               y={barY}
               width={barWidth}
