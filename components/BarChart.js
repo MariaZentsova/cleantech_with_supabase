@@ -28,7 +28,7 @@ const BarChart = ({ width, height, investment }) => {
 )
 .map(([k, v]) => ({ Country: k, Value: v }))
 
-// sort values
+// sort
 investment_by_country.sort(function(a, b){
   return b["Value"]-a["Value"];
 });
