@@ -45,7 +45,7 @@ const Dashboard = ({ funding, count, investment }) => {
 
             //to make the grid responsive
             >
-                <GridItem minH='300px' rowSpan={{ sm: 3, md: 3 }} colSpan={{ sm: 5, md: 2, lg: 2, '2xl': 2 }}>
+                <GridItem  rowSpan={{ sm: 3, md: 3 }} colSpan={{ sm: 5, md: 2, lg: 2, '2xl': 2 }}>
                     <Card height={'100%'}>
                         <Text p={2} > Clean Tech Investments, mln $</Text>
                         <ParentSize>
@@ -83,8 +83,8 @@ const Dashboard = ({ funding, count, investment }) => {
 
                     </HStack>
                 </GridItem>
-                <GridItem rowSpan={2} colSpan={{ sm: 5, md: 3, lg: 3 }} >
-                    <Card height={'100%'}>
+                <GridItem rowSpan={{ sm: 2, md: 2 }} colSpan={{ sm: 5, md: 3, lg: 3 }} >
+                    <Card  height={'100%'}>
                         <Text p={2} > Investments by Country, mln $</Text>
                         <ParentSize>
                             {({ width, height }) =>
@@ -94,7 +94,7 @@ const Dashboard = ({ funding, count, investment }) => {
                         </ParentSize>
                     </Card>
                 </GridItem>
-                <GridItem mt={3} rowSpan={3} colSpan={{ sm: 5, md: 5, lg: 5 }}>
+                <GridItem rowSpan={3}  colSpan={{ sm: 5, md: 5, lg: 5 }}>
 
                     <RoundsTable funding={funding} />
 

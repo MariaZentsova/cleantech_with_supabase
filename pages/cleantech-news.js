@@ -37,10 +37,16 @@ export default function CleantechNews({newsfeed}) {
 
 
 export async function getServerSideProps() {
+
+    const sql = `
+    id,title, body, url, industry (text), created_at
+
+    `
+
     // Fetch data from external API
     let { data: newsfeed, count, error } = await
               supabase.from('newsfeed')
-                  .select('*', { count: "exact" })
+                  .select(sql, { count: "exact" })
                 
                   .order("created_at", { ascending: false })
                   .range(0, 5)

@@ -47,7 +47,7 @@ const NewsCard = ({ post, index }) => {
                         {post.type}
                     </Badge> */}
                         <Badge colorScheme='green' size="sm">
-                            Clean Energy
+                            {post.industry.text}
                         </Badge>
 
                     </Flex>

@@ -1,20 +1,21 @@
 import React, { useMemo } from 'react';
 import { Bar } from '@visx/shape';
 import { Group } from '@visx/group';
-import letterFrequency, { LetterFrequency } from '@visx/mock-data/lib/mocks/letterFrequency';
 import { scaleBand, scaleLinear } from '@visx/scale';
 import { AxisLeft, AxisBottom } from '@visx/axis';
-import { rollups, sum, scaleOrdinal,quantize, interpolateRainbow } from 'd3'
+import { rollups, sum } from 'd3'
 
-const data = letterFrequency.slice(5);
-const verticalMargin = 120;
 
 // accessors
-const getLetter = (d) => d.letter;
-const getLetterFrequency = (d) => Number(d.frequency) * 100;
+
+function return_mln(number) {
+  let output = Math.floor(Math.abs(Number(number)) / 1.0e+4) / 100
+
+  return output
+}
 
 const getCountry = (d) => d.Country
-const getCountryValue = (d) => d.Value
+const getCountryValue = (d) => return_mln(d.Value)
 
 
 const BarChart = ({ width, height, investment }) => {
@@ -33,7 +34,8 @@ investment_by_country.sort(function(a, b){
   return b["Value"]-a["Value"];
 });
 
-console.log(investment_by_country)
+
+
 
 
 

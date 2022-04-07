@@ -34,7 +34,8 @@ const Header = () => {
             height="4rem">
             <Box width="full" mx="auto" px={6} pr={[1, 6]} height="100%">
                 <Flex size="100%" p={[0, 3]} pl={[0, 4]} align="center" justify="space-between">
-                    <Box as="a" d="block" href="/" aria-label="daydrink, Back to homepage">
+                    <NextLink href='/'>
+                    <Box  d="block"  aria-label="sustinero homepage">
                         <HStack>
                             <Image src="/Sustinero.svg" alt="Sustinero Logo" width={35} height={35} />
                             <Heading fontSize={'md'}>
@@ -42,6 +43,7 @@ const Header = () => {
                             </Heading>
                         </HStack>
                     </Box>
+                    </NextLink>
                     {isDesktop && (
                         <HStack fontWeight={'extrabold'} spacing={20}>
                             <NextLink href='/cleantech-news' passHref>
