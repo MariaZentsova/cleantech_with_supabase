@@ -16,7 +16,7 @@ import {
 const NewsFeed = ({ news }) => {
     return (
         <>
-            <TagsCloud />
+            {/* <TagsCloud /> */}
             <Stack pt={2} spacing="2">
                 {news.map((post, index) => {
                     return (
