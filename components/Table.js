@@ -54,7 +54,7 @@ const RoundsTable = ({ funding }) => {
                     </Tr>
                 </Thead>
                 <Tbody>
-                    {funding.map((round) => (
+                    {funding && funding.map((round) => (
                         <Tr key={round.id}>
                             <Td>
 
