@@ -1,9 +1,7 @@
 import {
     Box,
     Button,
-    Checkbox,
     Container,
-    Divider,
     FormControl,
     FormLabel,
     Heading,
@@ -11,13 +9,11 @@ import {
     Input,
     Stack,
     Text,
-    toast,
     useBreakpointValue,
     useColorModeValue,
     useToast
 } from '@chakra-ui/react'
 import {useState} from 'react';
-import PasswordField from '@/components/PasswordField';
 import { supabase } from '@/utils/supabaseClient'
 
 const Register = () => {
@@ -72,7 +68,7 @@ const Register = () => {
                   Get Access
                     </Heading>
                     <HStack spacing="1" justify="center">
-                        <Text color="muted">We'll email you a magic link for data access. </Text>
+                        <Text color="muted">We will email you a magic link for data access. </Text>
                      
                     </HStack>
                 </Stack>

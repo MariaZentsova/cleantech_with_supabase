@@ -55,7 +55,7 @@ const RoundsTable = ({ funding }) => {
                 </Thead>
                 <Tbody>
                     {funding.map((round) => (
-                        <Tr>
+                        <Tr key={round.id}>
                             <Td>
 
                                 <HStack spacing={3}>
