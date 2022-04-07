@@ -20,7 +20,7 @@ const CleanTechFunding = () => {
                     <BreadcrumbLink href='#'>Clean Tech Start Ups Funding</BreadcrumbLink>
                 </BreadcrumbItem>
             </Breadcrumb>
-            <Table />
+    
         </AppShell>
     )
 }
