@@ -83,7 +83,7 @@ const Dashboard = ({ funding, count, investment }) => {
 
                     </HStack>
                 </GridItem>
-                {/* <GridItem rowSpan={{ sm: 2, md: 2 }} colSpan={{ sm: 5, md: 3, lg: 3 }} >
+                <GridItem rowSpan={{ sm: 2, md: 2 }} colSpan={{ sm: 5, md: 3, lg: 3 }} >
                     <Card  height={'100%'}>
                         <Text p={2} > Investments by Country, mln $</Text>
                         <ParentSize>
@@ -93,7 +93,7 @@ const Dashboard = ({ funding, count, investment }) => {
                             }
                         </ParentSize>
                     </Card>
-                </GridItem> */}
+                </GridItem>
                 <GridItem rowSpan={3}  colSpan={{ sm: 5, md: 5, lg: 5 }}>
 
                     <RoundsTable funding={funding} />
