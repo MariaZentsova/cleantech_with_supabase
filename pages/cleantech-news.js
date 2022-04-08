@@ -15,7 +15,7 @@ import AppShell from "@/components/AppShell"
 import { supabase } from '@/utils/supabaseClient'
 import Newsfeed from '@/components/Newsfeed'
 
-export default function CleantechNews({newsfeed}) {
+export default function CleantechNews({newsfeed, count}) {
 
     return (
         <AppShell width="full" maxWidth="1280px" mx="auto" px={6} py={6}>
@@ -28,7 +28,7 @@ export default function CleantechNews({newsfeed}) {
                     <BreadcrumbLink href='#'>Clean Tech News</BreadcrumbLink>
                 </BreadcrumbItem>
             </Breadcrumb>
-           <Newsfeed news={newsfeed} />
+           <Newsfeed data={newsfeed} count={count} />
         </AppShell>
     )
 
@@ -52,5 +52,5 @@ export async function getServerSideProps() {
                   .range(0, 5)
   
     // Pass data to the page via props
-    return { props: { newsfeed } }
+    return { props: { newsfeed, count } }
   }

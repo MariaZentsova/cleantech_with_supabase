@@ -1,4 +1,3 @@
-import React from "react";
 import { Box, Badge, Text, Flex, Stack, HStack, Heading, Tag, Code } from '@chakra-ui/react';
 import { format, parseISO } from "date-fns";
 import { Link } from "@chakra-ui/react"
@@ -10,7 +9,8 @@ function url_domain(url) {
 }
 
 
-const NewsCard = ({ post, index }) => {
+const NewsCard = (props) => {
+    const { post } = props;
     return (
         <Box
             bg="#fff"
@@ -19,9 +19,7 @@ const NewsCard = ({ post, index }) => {
             position="relative"
             borderRadius="lg"
             maxW={'1000px'}
-            key={index}
-        // ref={ref}
-
+           
         >
             <Flex>
 
@@ -84,5 +82,7 @@ const NewsCard = ({ post, index }) => {
         </Box>
     )
 }
+
+NewsCard.displayName = "NewsCard";
 
 export default NewsCard

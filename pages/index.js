@@ -8,6 +8,7 @@ function Home({ funding, count, investment_industry_country }) {
   return (
     <AppShell width="full" maxWidth="1280px" mx="auto" px={6} py={6}>
       <Dashboard funding={funding} count={count} investment={investment_industry_country}/>
+    
     </AppShell>
   )
 }
