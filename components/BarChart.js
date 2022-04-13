@@ -22,7 +22,7 @@ const BarChart = ({ width, height, investment }) => {
 
 
   //preprocess the data
-  let investment_by_country = rollups(
+  let investments = rollups(
     investment,
   xs => sum(xs, x => x.total_usd),
   d => d.countries.name
@@ -30,9 +30,11 @@ const BarChart = ({ width, height, investment }) => {
 .map(([k, v]) => ({ Country: k, Value: v }))
 
 // sort
-investment_by_country.sort(function(a, b){
+investments.sort(function(a, b){
   return b["Value"]-a["Value"];
 });
+
+let investment_by_country = investments.slice(0,8)
 
 
 

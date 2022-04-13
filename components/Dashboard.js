@@ -17,6 +17,7 @@ import ParentSize from '@visx/responsive/lib/components/ParentSize';
 import Card from "@/components/Card"
 import BarChart from './BarChart';
 
+
 const Dashboard = ({ funding, count, investment }) => {
 
 
@@ -45,8 +46,8 @@ const Dashboard = ({ funding, count, investment }) => {
 
             //to make the grid responsive
             >
-                <GridItem  rowSpan={{ sm: 3, md: 3 }} colSpan={{ sm: 5, md: 2, lg: 2, '2xl': 2 }}>
-                    <Card height={'100%'}>
+                <GridItem h={'50vh'} rowSpan={{ sm: 3, md: 3 }} colSpan={{ sm: 5, md: 2, lg: 2, '2xl': 2 }}>
+                    <Card height={'100%'} >
                         <Text p={2} > Clean Tech Investments, mln $</Text>
                         <ParentSize>
                             {({ width, height }) =>
@@ -68,7 +69,8 @@ const Dashboard = ({ funding, count, investment }) => {
                         <Card height={'100%'}>
                             <Stat p={2}>
                                 <StatLabel>Average Round</StatLabel>
-                                <StatNumber>$500,000</StatNumber>
+                         
+                                <StatNumber>$23,000,000</StatNumber>
                                 <StatHelpText>Jan 1 - Feb 25, 2022</StatHelpText>
                             </Stat>
                         </Card>
@@ -83,7 +85,7 @@ const Dashboard = ({ funding, count, investment }) => {
 
                     </HStack>
                 </GridItem>
-                <GridItem rowSpan={{ sm: 2, md: 2 }} colSpan={{ sm: 5, md: 3, lg: 3 }} >
+                <GridItem mb={15} h={'33vh'} rowSpan={{ sm: 2, md: 2 }} colSpan={{ sm: 5, md: 3, lg: 3 }} >
                     <Card  height={'100%'}>
                         <Text p={2} > Investments by Country, mln $</Text>
                         <ParentSize>
