@@ -10,11 +10,19 @@ class Document extends NextDocument {
     render() {
         return (
             <Html>
+
                 <Head>
 
                     <meta title="Sustinero | Renewable energy and clean tech news" />
                     <link rel="icon" sizes="96x96" href="/favicons/favicon.ico" />
                     <meta name="theme-color" content="#319795"></meta>
+                    {/* <style>
+            :where(body, iframe, pre, img, svg, video, canvas, select) {{
+        maxWidth:'100%',
+        overflow: 'auto', 
+        wordBreak:'break-word'
+    }}
+</style> */}
                 </Head>
                 <body>
                     <Main />
